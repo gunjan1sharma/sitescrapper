@@ -15,7 +15,6 @@ import {
   InputAdornment,
   InputBaseClasses,
   InputLabel,
-  Link,
   List,
   Menu,
   MenuItem,
@@ -28,6 +27,7 @@ import LogoImage from "../assets/images/internet.png";
 import { ColorContext } from "../extras/ColorContext";
 import MenuIcon from "@mui/icons-material/Menu";
 import SingleColor from "./SingleColor";
+import { Link } from "react-router-dom";
 
 const Wrapper = `
   position: fixed;
@@ -74,6 +74,7 @@ const hexColors: string[] = [
 ];
 
 function UpMenu(props: any) {
+  const scrollRef = useRef<any>(null);
   const headerRef = useRef<any>(null);
   const [headingColor, setHeadingColor] = useState("");
   const [deleted, setDeleted] = useState(false);
@@ -202,6 +203,10 @@ function UpMenu(props: any) {
     </React.Fragment>
   );
 
+  function scrollToDiv() {
+    headerRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
   function updateColor(): NodeJS.Timer {
     const intervalId = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * hexColors.length);
@@ -226,12 +231,14 @@ function UpMenu(props: any) {
 
         <div className="flex items-center justify-center">
           <img alt="" src={LogoImage} className="w-10 h-10 md:w-14 md:h-14" />
-          <h1
-            style={{ color: "#00A1F5" }}
-            className="p-5 text-cente font-bold text-xl sm:text-4xl"
-          >
-            Website Scrapper
-          </h1>
+          <Link to="https://website-scrappers.web.app">
+            <h1
+              style={{ color: "#00A1F5" }}
+              className="p-5 text-cente font-bold text-xl sm:text-4xl"
+            >
+              Website Scrapper
+            </h1>
+          </Link>
         </div>
 
         <div></div>

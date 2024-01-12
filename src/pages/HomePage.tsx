@@ -147,7 +147,7 @@ function HomePage(props: any) {
         heading="Powerful In-depth website scrapping model"
         desc="Ditch generic keywords and discover powerful, untapped gems with our advanced scraper. Say goodbye to endless brainstorming and hello to targeted content that dominates search engines. No more tedious manual research. Automate your keyword discovery, freeing up your time for crafting content that truly shines."
       />
-      <div className="flex flex-col items-center border shadow-lg p-4">
+      <div className="flex flex-col items-center border border-gray-500 shadow-lg p-4">
         <TextField
           fullWidth
           value={videoUrl}
