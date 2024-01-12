@@ -24,7 +24,7 @@ import {
   Typography,
 } from "@mui/material";
 import ColorImage from "../assets/images/colour.png";
-import LogoImage from "../assets/images/keyword.png";
+import LogoImage from "../assets/images/internet.png";
 import { ColorContext } from "../extras/ColorContext";
 import MenuIcon from "@mui/icons-material/Menu";
 import SingleColor from "./SingleColor";
@@ -227,8 +227,8 @@ function UpMenu(props: any) {
         <div className="flex items-center justify-center">
           <img alt="" src={LogoImage} className="w-10 h-10 md:w-14 md:h-14" />
           <h1
-            style={{ color: headingColor }}
-            className="p-5 text-center text-xl sm:text-4xl"
+            style={{ color: "#00A1F5" }}
+            className="p-5 text-cente font-bold text-xl sm:text-4xl"
           >
             Website Scrapper
           </h1>
