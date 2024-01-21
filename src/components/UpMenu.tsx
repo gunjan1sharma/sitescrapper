@@ -236,7 +236,7 @@ function UpMenu(props: any) {
               style={{ color: "#00A1F5" }}
               className="text-center ml-2 text-xl sm:trext-4xl"
             >
-              Siteparser.co®
+             Webparser.online®
             </h1>
           </Link>
         </div>

@@ -39,7 +39,7 @@ function App() {
       >
         {location.pathname === "/" && (
           <SimpleIntro
-            tag="FREE TOOL"
+            tag="WEBPARSER.ONLINE"
             heading="Ultimate Website Scrapper"
             subtitle="Scrap SEO of Any Website"
             btntext="Scrap Websites"

@@ -32,12 +32,17 @@ function Footer(props: any) {
         <div className="w-full m-5 flex items-center justify-center">
           <img alt="" src={LogoImage} className="w-7 h-7" />
           <h1 className="text-center ml-4 text-white text-xl font-bold">
-            Siteparser.co®
+            Webparser.online®
           </h1>
         </div>
 
         <div className="w-100%">
           <div className="p-5 container grid grid-cols-3 md:grid-cols-4 gap-2 w-full">
+            {heading("Docbay.in®", "https://docbay.in")}
+            {heading("Profileo.me®", "https://profileo.me")}
+            {heading("EscreenshotX®", "https://escreenshotx.web.app")}
+            {heading("GeekForce.in®", "https://geekforce.in")}
+
             {heading("Seo Parser", "https://seo-scrapers.web.app")}
             {heading("Link Scrapper", "https://links-scrapper.web.app")}
             {heading("Images Scrapper", "https://images-scrapper.web.app")}
@@ -77,7 +82,7 @@ function Footer(props: any) {
 
         <div className="m-4">
           <h5 className="text-center text-white font-sans text-xs font-bold">
-            @Copyright 2024-2030
+            © Copyright Webparser.online® 2024-30
           </h5>
           <Link to={"https://www.linkedin.com/in/gunjan-sharma-a74332251/"}>
             <h5 className="text-center m-1 text-white font-sans text-xs font-bold">

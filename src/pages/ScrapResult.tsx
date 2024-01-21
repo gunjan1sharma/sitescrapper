@@ -18,7 +18,7 @@ import {
 import axios from "axios";
 
 const API_BASE_URL =
-  "http://192.168.1.88:9999/extras/v1/api/parsing/depth-scrapping?siteUrl=";
+  "https://appnor-backend.onrender.com/extras/v1/api/parsing/depth-scrapping?siteUrl=";
 
 function ScrapResult(props: any) {
   const navigate = useNavigate();
