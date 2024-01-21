@@ -4,7 +4,6 @@ import { SimpleIntroProps } from "../extras/types";
 import { ColorContext } from "../extras/ColorContext";
 
 function SimpleIntro(props: SimpleIntroProps) {
-  const targetDivRef = useRef();
   const colorContex = useContext(ColorContext);
 
   function callToActionClicked() {
@@ -16,7 +15,7 @@ function SimpleIntro(props: SimpleIntroProps) {
       <h3 className="font-bold">
         {props.tag !== null ? props.tag : "FREE TOOLS"}
       </h3>
-      <h1 className="font-bold text-6xl lg:text-7xl md:mt-5 md:mb-5 md:m-0 m-3 md:w-full w-72">
+      <h1 className="font-bold sm:leading-tight text-4xl sm:text-6xl lg:text-7xl mt-5 mb-5 md:mt-5 md:mb-5 md:m-0 md:w-full w-72">
         {props.heading}
       </h1>
       <h4 className="text-2xl mb-6 mt-2">{props.subtitle}</h4>

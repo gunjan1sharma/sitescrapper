@@ -221,7 +221,7 @@ function UpMenu(props: any) {
     <div>
       <div
         ref={headerRef}
-        className="w-full flex items-center justify-between shadow-md bg-gradient-to-r from-yellow-200 via-gray-100 to-yellow-200"
+        className="w-full flex items-center justify-between p-2 shadow-md bg-gradient-to-r from-yellow-200 via-gray-100 to-yellow-200"
       >
         <div>
           <IconButton onClick={() => setOpen(true)}>
@@ -230,13 +230,13 @@ function UpMenu(props: any) {
         </div>
 
         <div className="flex items-center justify-center">
-          <img alt="" src={LogoImage} className="w-10 h-10 md:w-14 md:h-14" />
-          <Link to="https://website-scrappers.web.app">
+          <img alt="" src={LogoImage} className="w-8 h-8" />
+          <Link to="/">
             <h1
               style={{ color: "#00A1F5" }}
-              className="p-5 text-cente font-bold text-xl sm:text-4xl"
+              className="text-center ml-2 text-xl sm:trext-4xl"
             >
-              Website Scrapper
+              Siteparser.co®
             </h1>
           </Link>
         </div>

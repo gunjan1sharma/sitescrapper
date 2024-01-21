@@ -4,32 +4,26 @@ import {
   Checkbox,
   CircularProgress,
   Divider,
-  Pagination,
   TextField,
 } from "@mui/material";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import DownloadImage from "../assets/images/download.png";
 import React, {
-  ChangeEventHandler,
   useContext,
   useEffect,
   useRef,
   useState,
 } from "react";
-import ReactPlayer from "react-player";
-import axios from "axios";
-import { Image, Root } from "../extras/types";
-import SingleComponent from "../components/SingleComponent";
-import ImageComponent from "../components/ImageComponent";
-import ReactJson from "react-json-view";
+import { v4 as uuidv4 } from "uuid";
+import { Image } from "../extras/types";
 import FeatureIntro from "../components/FeatureIntro";
 import { ColorContext } from "../extras/ColorContext";
+import { useNavigate } from "react-router-dom";
 
-const API_BASE_URL = `https://appnor-backend.onrender.com/extras/v1/api/parsing/depth-scrapping?siteUrl=`;
+
 
 function HomePage(props: any) {
   const colorContex = useContext(ColorContext);
+  const navigate = useNavigate();
   const [videoUrl, setVideoUrl] = useState("");
   const [inVideoUrl, setInVideoUrl] = useState("");
   const [audioResponse, setAudioResponse] = useState<any>();
@@ -38,7 +32,7 @@ function HomePage(props: any) {
   const [isDownloadSuccess, setIsDownloadSuccess] = useState(false);
   const [open, setOpen] = React.useState(false);
   const scrollRef = useRef<any>(null);
-
+  const [tabValue, setTabValue] = useState(0);
   const [displayedItems, setDisplayedItems] = useState<Image[]>();
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
@@ -55,6 +49,7 @@ function HomePage(props: any) {
   const handleOpen = () => {
     setOpen(true);
   };
+
 
   function handleChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -83,26 +78,7 @@ function HomePage(props: any) {
       return;
     }
     handleOpen();
-    axios.post<Root>(API_BASE_URL + videoUrl).then(
-      (result) => {
-        console.log("Hitting Website Parser  API is successful");
-        setPlayVideo(true);
-        setInVideoUrl(videoUrl);
-
-        setAudioResponse(result.data);
-        //setDisplayedItems(result.data.images.slice(0, itemsPerPage));
-        setIsDownloadSuccess(true);
-        setTimeout(() => {
-          handleClose();
-          setVideoUrl("");
-        }, 5000);
-      },
-      (error) => {
-        console.log("Something went wrong while hitting data.." + error);
-        handleClose();
-        alert("Something went wrong while hitting data.. [" + error + " ]");
-      }
-    );
+    navigate(`/siteparser/${uuidv4()}`, { state: { url: videoUrl } });
   }
 
   function handleVideoPlay(): any {
@@ -140,14 +116,16 @@ function HomePage(props: any) {
   return (
     <div
       ref={scrollRef}
-      className="md:m-10 sm:m-5 flex flex-col items-center justify-center"
+      className="md:m-10 sm:m-5 w-full flex flex-col items-center justify-center"
     >
       {backdrop}
       <FeatureIntro
-        heading="Powerful In-depth website scrapping model"
-        desc="Ditch generic keywords and discover powerful, untapped gems with our advanced scraper. Say goodbye to endless brainstorming and hello to targeted content that dominates search engines. No more tedious manual research. Automate your keyword discovery, freeing up your time for crafting content that truly shines."
+        heading="Unleash the Hidden Insights of Any Website"
+        desc="Unlock SEO Secrets, Keywords, Media, and More—Instantly. Try SiteParser.co Today! Don't Just Browse, Parse. Get Rich Data, Not Just Raw HTML. Start Scrapping Smarter with SiteParser.co."
+        subdesc="Need to Extract Images, Links, and Content from Any Website? SiteParser.co Is Your One-Stop Scraping Solution. Tired of Manual Data Extraction? Let SiteParser.co Do the Heavy Lifting. Effortless Scrapping, Effortless Insights."
       />
-      <div className="flex flex-col items-center border border-gray-500 shadow-lg p-4">
+
+      <div className="flex flex-col md:w-4/5  items-center border border-gray-500 shadow-lg p-4">
         <TextField
           fullWidth
           value={videoUrl}
@@ -156,6 +134,7 @@ function HomePage(props: any) {
           label="Enter Website Link To Scrap"
           variant="outlined"
         />
+
         <Button
           onClick={fetchDownloadableLink}
           sx={{ marginTop: "20px", marginBottom: "10px", width: "200px" }}
@@ -163,6 +142,7 @@ function HomePage(props: any) {
         >
           Scrap Website
         </Button>
+
         <Button
           onClick={handleVideoPlay}
           sx={{ width: "200px", marginTop: "10px", marginBottom: "15px" }}
@@ -211,7 +191,7 @@ function HomePage(props: any) {
         </div>
       )}
 
-      {isDownloadSuccess && (
+      {/* {isDownloadSuccess && (
         <div className="w-screen">
           <ReactJson
             style={{ overflowX: "scroll", paddingTop: "10px" }}
@@ -222,9 +202,11 @@ function HomePage(props: any) {
             theme={"colors"}
           />
         </div>
-      )}
+      )} */}
     </div>
   );
 }
 
 export default HomePage;
+
+
